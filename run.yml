@@ -19,11 +19,8 @@ jobs:
         java-version: '11'
 
     - name: Build with Maven
-      run: mvn -B package --file cd /home/ubuntu
+      run: mvn -B package --file pom.xml
 
     - name: Run PetClinic
       run: |
-        cd /home/ubuntu/
-
-
-
+        ssh ubuntu@54.159.151.232 "cd /home/ubuntu && ./deploy.sh"

@@ -23,4 +23,4 @@ jobs:
 
       - name: Deploy to a server
         run: |
-          ssh ubuntu@ec2-54.159.151.232 "cd /home/ubuntu/ && ./deploy.sh"
+          ssh ubuntu@ec2-54.159.151.232 "/home/ubuntu/ && ./deploy.sh"

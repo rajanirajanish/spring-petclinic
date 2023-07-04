@@ -24,7 +24,7 @@ jobs:
       - name: Deploy to a server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.54.159.151.232T }}
+          host: ${{ secrets.54.159.151.232 }}
           username: ${{ secrets.rajanish }}
           key: ${{ secrets.Rajanish.pem }}
           script: |

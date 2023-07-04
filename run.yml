@@ -23,6 +23,6 @@ jobs:
 
       - name: Deploy to a server
         run: |
-          ssh ubuntu@54.159.151.232:/home/ubuntu/spring-petclinic.jar
+          ssh ubuntu@54.159.151.232 "cd /home/ubuntu && java -jar spring-petclinic.jar"
 
 

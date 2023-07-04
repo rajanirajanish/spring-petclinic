@@ -22,5 +22,8 @@ jobs:
         run: mvn clean install
 
       - name: Deploy to a server
-        run: java -jar /home/ubuntu/spring-petclinic.jar
-          ssh ubuntu@ec2-18-233-151-52 "/home/ubuntu && ./deploy.sh"
+        run: |
+          scp target/spring-petclinic.jar ubuntu@54.159.151.232:/home/ubuntu/spring-petclinic.jar
+          ssh ubuntu@54.159.151.232 "cd /home/ubuntu && ./deploy.sh"
+
+

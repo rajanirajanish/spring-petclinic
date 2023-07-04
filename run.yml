@@ -22,4 +22,5 @@ jobs:
         run: mvn clean install
 
       - name: Deploy to a server
-        run: ssh ubuntu@ec2-54.159.151.232 "/home/ubuntu/ && ./deploy.sh"
+        run:  |
+              ssh -i "Rajanish.pem" ubuntu@ec2-54-159-151-232.compute-1.amazonaws.com "/home/ubuntu/ && ./deploy.sh"

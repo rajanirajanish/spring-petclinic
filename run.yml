@@ -22,5 +22,12 @@ jobs:
         run: mvn clean install
 
       - name: Deploy to a server
-        run:  |
-              ssh -i "Rajanish.pem" ubuntu@ec2-54-159-151-232.compute-1.amazonaws.com "/home/ubuntu/ && ./deploy.sh"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ 54.159.151.232 }}
+          username: ${{ ubuntu@ec2 }}
+          key: ${{ Rajanish.pem }}
+          script: |
+            cd /home/ubuntu
+            ./deploy.sh
+

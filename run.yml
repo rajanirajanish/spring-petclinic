@@ -23,5 +23,5 @@ jobs:
 
     - name: Deploy to server
       run: |
-        scp -r ./build/* ubuntu@ec2-54.159.151.232:cd /home/ubuntu
+        scp -r ./build/* ubuntu@ec2-54.159.151.232:/home/ubuntu
         ssh ubuntu@ec2-54.159.151.232 'sudo systemctl restart your-service'   # Restart the service on the server

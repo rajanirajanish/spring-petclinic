@@ -29,7 +29,7 @@ jobs:
         with:
           host: 174.129.146.226   # Replace with your EC2 instance's public IP or DNS
           username: ubuntu   # Replace with your EC2 instance's username
-          key: SSH_KEY   # Reference the secret with your private key
+          key: EC2_SSH_PRIVATE_KE   # Reference the secret with your private key
 
 
 

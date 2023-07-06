@@ -1,0 +1,35 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '17' ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK ${{matrix.java}}
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{matrix.java}}
+          distribution: 'adopt'
+          cache: maven
+      - name: Build with Maven Wrapper
+        run: ./mvnw -B package
+      - name: SSH to EC2 instance and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 174.129.146.226   # Replace with your EC2 instance's public IP or DNS
+          username: ubuntu   # Replace with your EC2 instance's username
+          key: ssh_key   # Reference the secret with your private key
+
+
+
